@@ -20,7 +20,17 @@ preamble: I enjoy tinkering with computers...
 3. GitHub action automatically runs on changes
 4. Downoad the ZIP file by navigating to Actions -> Summary -> Artifacts -> resume
 
-## Docker
+## Example Output
+
+### PDF
+
+![Screenshot of Markdown to PDF resume](resume.png?raw=true "Screenshot of Markdown to PDF resume")
+
+### DOCX
+
+![Screenshot of Markdown to DOCX resume](resume-docx.png?raw=true "Screenshot of Markdown to DOCX resume")
+
+## Docker Usage
 
 If you prefer not to use GitHub actions you can also run this locally with Docker. You can do this with Docker as `docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex resume.md -H header.tex --output=resume.pdf`.
 
