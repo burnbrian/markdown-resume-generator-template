@@ -1,0 +1,37 @@
+name: Markdown Resume Generator
+
+on:
+  push:
+    branches: [ main ] 
+
+jobs:
+  pandoc_with_docker:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: mkdir -p output
+
+      - uses: docker://pandoc/latex
+        name: generate resume pdf
+        with:
+          args: >-
+            resume.md
+            -f gfm
+            -H header.tex
+            --output=output/resume.pdf
+             
+      - uses: docker://pandoc/latex
+        name: generate resume docx
+        with:
+          args: >-
+            resume.md
+            -f gfm
+            -H header.tex
+            --output=output/resume.docx
+          
+      - uses: actions/upload-artifact@v3
+        name: upload artifact
+        with:
+          name: resume
+          path: output
