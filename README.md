@@ -32,7 +32,11 @@ preamble: I enjoy tinkering with computers...
 
 ## Docker Usage
 
-If you prefer not to use GitHub actions you can also run this locally with Docker. You can do this with Docker as `docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex resume.md -H header.tex --output=resume.pdf`.
+If you prefer not to use GitHub actions you can also run this locally with Docker. You can do this with Docker as:
+
+```bash
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex resume.md -H header.tex --output=resume.pdf
+```
 
 # Resources
 
